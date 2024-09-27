@@ -1,0 +1,8 @@
+body {
+    background: white url("images/background.jpg") no-repeat center center fixed; /* Center the image and fix it */
+    background-size: cover;
+}
+
+li a {
+    color: #6997b7;
+}
