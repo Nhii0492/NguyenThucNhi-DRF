@@ -6,6 +6,13 @@ from django.views import generic
 from .models import Choice, Question
 from django.utils import timezone
 
+from django.shortcuts import render
+
+
+from django.http import HttpResponse
+
+
+
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
     context_object_name = "latest_question_list"
