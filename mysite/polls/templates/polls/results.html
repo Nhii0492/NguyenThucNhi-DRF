@@ -1,9 +1,56 @@
-<h1>{{ question.question_text }}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #A6CAEAFF;
+            color: #333;
+        }
+        h1 {
+            color: #C5705D;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        li {
+            margin: 10px 0;
+            text-align: center;
+        }
+        a {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            text-decoration: none;
+            color: #DFD3C3;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #54903a;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ question.question_text }}</h1>
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+    <ul>
+    {% for choice in question.choice_set.all %}
+        <li>
+            {{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}
+        </li>
+    {% empty %}
+        <li>No choices available for this question.</li>
+    {% endfor %}
+    </ul>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+    <a href="{% url 'polls:vote' question.id %}">Vote again?</a>
+</body>
+</html>
