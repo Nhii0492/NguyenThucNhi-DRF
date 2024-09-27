@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polls</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #a6caea;
             color: #333;
         }
         h1 {
